@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -70,17 +70,17 @@
 
 <!--        layout days -->
         <div class="row text-center g-0">
-            <div class="col day-name min-h-100  border border-primary"  data-date="2025-12-01">
+            <div class="col day-name min-h-100  border border-primary hover"  data-date="2025-12-01">
                 <h6 class="border-bottom border-primary text-end pe-2 bg-danger-subtle ">1</h6>
-                <div class="small_container h-100"></div>
+                <div class="small_container "></div>
             </div>
-            <div class="col day-name min-h-100  border border-primary"  data-date="2025-12-02"><div
-                    class="border-bottom border-primary text-end pe-2 bg-danger-subtle">2</div>
+            <div class="col day-name min-h-100  border border-primary"  data-date="2025-12-02"><h6
+                    class="border-bottom border-primary text-end pe-2 bg-danger-subtle">2</h6>
                 <div class="small_container"></div>
             </div>
             <div class="col day-name min-h-100  border border-primary"  data-date="2025-12-03"><h6
                     class="border-bottom border-primary text-end pe-2 bg-danger-subtle ">3</h6>
-                <div class="small_container"></div>
+                <div class="small_container "></div>
             </div>
             <div class="col day-name min-h-100  border border-primary"  data-date="2025-12-04"><h6
                     class="border-bottom border-primary text-end pe-2 bg-danger-subtle ">4</h6>
@@ -112,6 +112,39 @@
 
 
 </section>
+
+
+<section id="form_user">
+    <form class="form-container">
+        <label for="clientName">Client name</label>
+        <input class="inputForm"  type="text" id="clientName">
+
+        <label for="startTime">Start time</label>
+        <input class="inputForm" type="time" id="startTime">
+
+        <label for="endTime">End time</label>
+        <input class="inputForm" type="time" id="endTime">
+
+        <label for="numberOfPeople">Number of people</label>
+        <input class="inputForm" type="number" min="1" id="numberOfPeople">
+
+        <label for="reservationType">Type of reservation</label>
+        <select id="reservationType">
+            <option>Standard</option>
+            <option>VIP</option>
+            <option>Birthday</option>
+            <option>Group</option>
+        </select>
+
+        <button class="btn_form" type="submit">Add Reservation</button>
+    </form>
+</section>
+
+
+
+
+
+
 <script src="js/bootstrap.bundle.min.js"></script>
 <script src="js/index.js"></script>
 </body>
