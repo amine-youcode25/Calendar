@@ -89,6 +89,7 @@ label {
     font-size: 16px;
 }
 
+
 .btn_form:hover {
     background-color: red;
 }
@@ -114,6 +115,6 @@ label {
 }
 
 
-.tg-function{
-    display: block;
+.tgFunction{
+    display: block !important;
 }

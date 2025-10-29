@@ -2,6 +2,12 @@ const gdSection = document.getElementById('gridSection');
 const formcont = document.querySelector('.form-container');
 const formsection = document.getElementById('form_user');
 
+let day = 0;
+
+
+function formOnOff(){
+    formsection.classList.toggle('tgFunction');
+}
 
 
 function getForm(){
@@ -11,17 +17,15 @@ function getForm(){
         end: document.getElementById('endTime').value,
         type: document.getElementById('reservationType').value
     }
+    return data;
 }
 
 
 
 gdSection.addEventListener('click', function (detector) {
-    const day = detector.target.closest('.small_container');
+    day = detector.target.closest('.small_container');
     day.style.backgroundColor = 'red';
-    formsection.style.display = 'block';
-
-
-
+    formOnOff();
 
 // formsection.classList.toggle('.tg-function')
 })
@@ -32,6 +36,25 @@ gdSection.addEventListener('click', function (detector) {
 
 
 
+    formcont.addEventListener('submit', function (e) {
+        e.preventDefault();
+        getForm();
+        add(day,getForm());
+        formcont.reset();
+        formOnOff();
+    });
+
+
+
+
+//c oblige poiur que l'utilisateur click outside de la form pour la ferme
+formsection.addEventListener('click', function (e) {
+    if (e.target === formsection) {
+        formOnOff();
+        formcont.reset();
+    }
+
+})
 
 
 
@@ -44,14 +67,7 @@ gdSection.addEventListener('click', function (detector) {
 
 
 
-
-
-
-
-
-
-
-function add(whichday,getForm) {
+function add(whichday,getform) {
     const reservationDiv = document.createElement('div');
     reservationDiv.className = 'fs-6 bg-warning rounded-1 d-flex align-items-center justify-content-center p-0'
     reservationDiv.innerHTML= `<span>${getform.client}</span>
@@ -59,28 +75,22 @@ function add(whichday,getForm) {
         <div>
             <button class="btn-edit"><i class="fa-solid fa-pen-to-square"></i></button>
             <button class="btn-remove"><i class="fa-solid fa-trash"></i></button>
-        </div>`
+        </div>`;
+    reservationDiv.querySelector('.btn-remove').addEventListener('click', function() {
+        reservationDiv.remove();
+    });
+
+// 3. Add edit listener (optional for now)
+    reservationDiv.querySelector('.btn-edit').addEventListener('click', function() {
+        // Show form with existing data
+    });
     whichday.appendChild(reservationDiv);
 }
-
-formcont.addEventListener('submit', function (e) {
-    e.preventDefault();
-    getForm();
-    add(day);
-    formcont.reset();
-    formsection.style.display = 'none';
-});
 
 
 //if user press anywhere than grid section
 
 
-formsection.addEventListener('click', function (e) {
-    if (e.target === formsection) {
-        formsection.style.display = 'none';
-    }
-
-})
 
 
 
