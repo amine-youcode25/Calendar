@@ -80,9 +80,10 @@ function add(whichday,getform) {
         reservationDiv.remove();
     });
 
-// 3. Add edit listener (optional for now)
+
     reservationDiv.querySelector('.btn-edit').addEventListener('click', function() {
         // Show form with existing data
+
     });
     whichday.appendChild(reservationDiv);
 }
