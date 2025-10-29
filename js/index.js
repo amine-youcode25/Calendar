@@ -1,75 +1,87 @@
 const gdSection = document.getElementById('gridSection');
 const formcont = document.querySelector('.form-container');
-const formsection =document.getElementById('form_user');
-console.log(formcont)
+const formsection = document.getElementById('form_user');
 
-gdSection.addEventListener('click',function (detector) {
-const day = detector.target.closest('.small_container');
-day.style.backgroundColor = 'red';
-formsection.style.display = 'block';
+
+
+function getForm(){
+    const data={
+        client: document.getElementById('clientName').value,
+        start: document.getElementById('startTime').value,
+        end: document.getElementById('endTime').value,
+        type: document.getElementById('reservationType').value
+    }
+}
+
+
+
+gdSection.addEventListener('click', function (detector) {
+    const day = detector.target.closest('.small_container');
+    day.style.backgroundColor = 'red';
+    formsection.style.display = 'block';
+
+
+
+
 // formsection.classList.toggle('.tg-function')
 })
 
 // <div class="fs-6 bg-warning rounded-1 d-flex align-items-center justify-content-center p-0" >hello mate</div>
 
 
-function add(whichday){
-    let name = document.getElementById('name').value;
-    whichday.appendChild(`<div class="fs-6 bg-warning rounded-1 d-flex align-items-center justify-content-center p-0" > ${name}</div>`)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function add(whichday,getForm) {
+    const reservationDiv = document.createElement('div');
+    reservationDiv.className = 'fs-6 bg-warning rounded-1 d-flex align-items-center justify-content-center p-0'
+    reservationDiv.innerHTML= `<span>${getform.client}</span>
+        <span>${getform.start} - ${getform.end}</span>
+        <div>
+            <button class="btn-edit"><i class="fa-solid fa-pen-to-square"></i></button>
+            <button class="btn-remove"><i class="fa-solid fa-trash"></i></button>
+        </div>`
+    whichday.appendChild(reservationDiv);
 }
 
+formcont.addEventListener('submit', function (e) {
+    e.preventDefault();
+    getForm();
+    add(day);
+    formcont.reset();
+    formsection.style.display = 'none';
+});
 
 
 //if user press anywhere than grid section
 
 
-gdSection.addEventListener('click',function (e) {
+formsection.addEventListener('click', function (e) {
     if (e.target === formsection) {
         formsection.style.display = 'none';
     }
 
 })
 
-
-
-//
-//
-// section.addEventListener('click', function(detector) {
-//     const day = detector.target.closest('.small_container');
-//
-//         formcont[0].style.display = 'block';
-//
-//         function addReservation(e) {
-//             e.preventDefault();
-//
-//             // Create reservation div with delete/modify buttons
-//             const reservationDiv = document.createElement('div');
-//             reservationDiv.innerHTML = `
-//                 <span>Reservation</span>
-//                 <button class="btn-modify">Edit</button>
-//                 <button class="btn-delete">Delete</button>
-//             `;
-//
-//             // Delete listener
-//             reservationDiv.querySelector('.btn-delete').addEventListener('click', function() {
-//                 reservationDiv.remove();
-//             });
-//
-//             // Modify listener
-//             reservationDiv.querySelector('.btn-modify').addEventListener('click', function() {
-//                 // Show form with existing data
-//                 formcont[0].style.display = 'block';
-//             });
-//
-//             day.appendChild(reservationDiv);
-//             formcont[0].style.display = 'none';
-//         }
-//
-//         document.querySelector('form').onsubmit = addReservation;
-//
-// });
-//
-//
 
 
 
