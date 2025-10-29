@@ -55,7 +55,7 @@ h6{
 
 /* Form Styles */
 .form-container {
-    max-width: 400px;
+    max-width: 600px;
     margin: 20px auto;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -91,4 +91,29 @@ label {
 
 .btn_form:hover {
     background-color: red;
+}
+
+#form_user{
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.form-container{
+    /*display: none;*/
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    max-width: 90vw;
+}
+
+
+.tg-function{
+    display: block;
 }
