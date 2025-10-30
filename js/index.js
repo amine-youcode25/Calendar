@@ -23,7 +23,7 @@ function getForm() {
 
 gdSection.addEventListener('click', function (detector) {
     day = detector.target.closest('.small_container');
-    day.style.backgroundColor = 'red';
+    // day.style.backgroundColor = 'red'; for debug
     formOnOff();
 
 // formsection.classList.toggle('.tg-function')
@@ -37,7 +37,8 @@ formcont.addEventListener('submit', function (e) {
     getForm();
     add(day, getForm());
     formcont.reset();
-    formOnOff();
+    formOnOff()
+
 });
 
 
@@ -53,7 +54,7 @@ formsection.addEventListener('click', function (e) {
 
 function add(whichday, getform) {
     const reservationDiv = document.createElement('div');
-    reservationDiv.className = 'fs-6 rounded-1 d-flex align-items-center justify-content-center p-0'
+    reservationDiv.className = 'reservation fs-6 rounded-1 d-flex align-items-center justify-content-around p-0'
 
 
 
@@ -79,7 +80,11 @@ function add(whichday, getform) {
             <button class="btn-remove"><i class="fa-solid fa-trash"></i></button>
         </div>`;
 
-
+    // reservationDiv.addEventListener('mouseover', function (e) {
+    //     e.stopPropagation()
+    //     reservationDiv.querySelector('.btn-remove').style.display = 'inline-block';
+    //     reservationDiv.querySelector('.btn-edit').style.display = 'inline-block';
+    // })  solved through css hover
     reservationDiv.querySelector('.btn-remove').addEventListener('click', function (e) {
         e.stopPropagation()
         reservationDiv.remove();

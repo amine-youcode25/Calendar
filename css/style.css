@@ -135,3 +135,29 @@ label {
 .Group{
     background-color: yellow;
 }
+
+
+.btn-remove{
+    height: 20px;
+    width: 20px;
+
+    display: inline;
+}
+
+
+
+.btn-remove i{
+    height: 100%;
+    width: 100%;
+}
+
+.btn-edit{
+    display: inline;
+}
+
+.reservation:hover .btn-remove{
+    display: inline-block;
+}
+.reservation:hover .btn-edit{
+    display: inline-block;
+}
