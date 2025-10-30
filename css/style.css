@@ -102,6 +102,7 @@ label {
     position: fixed;
     top: 0;
     left: 0;
+
 }
 
 .form-container{
@@ -117,4 +118,20 @@ label {
 
 .tgFunction{
     display: block !important;
+}
+
+.birthday {
+    background-color: cadetblue;
+}
+
+.VIP{
+    background-color: greenyellow;
+}
+
+.Standard{
+    background-color: darkred;
+}
+
+.Group{
+    background-color: yellow;
 }
