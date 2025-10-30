@@ -2,7 +2,7 @@ const gdSection = document.getElementById('gridSection');
 const formcont = document.querySelector('.form-container');
 const formsection = document.getElementById('form_user');
 
-let day = 0;
+let day = 0; //div selected to store it
 
 
 function formOnOff() {
@@ -15,6 +15,7 @@ function getForm() {
         client: document.getElementById('clientName').value,
         start: document.getElementById('startTime').value,
         end: document.getElementById('endTime').value,
+        nPerson: document.getElementById('numberOfPeople').value,
         type: document.getElementById('reservationType').value
     }
     return data;
@@ -34,9 +35,35 @@ gdSection.addEventListener('click', function (detector) {
 
 formcont.addEventListener('submit', function (e) {
     e.preventDefault();
-    add(day, getForm());
-    formcont.reset();
-    formOnOff()
+    let data = getForm();
+    let validjs = data.client.trim();
+    // let error= false;
+    for (let i=0; i<validjs.length; i++) {
+
+        if (!isNaN(validjs[i]) && validjs[i] !== " "){
+            alert("client name cannot contain numbers");
+            return;
+        }
+    }
+
+    if (data.client === "" || data.start === "" || data.end === "" || data.type === "" || data.nPerson === "") {
+        alert("please fill all fields");
+        return;
+    }
+
+    if(data.start > data.end) {
+        alert("start time before end time");
+        return;
+    }
+    if (data.nPerson < 1 || data.nPerson > 10) {
+        alert("number of people must be between 1 and 10");
+        return;
+    }
+    // if (!error) { return cancel no need :)
+
+        add(day, data);
+        formcont.reset();
+        formOnOff()
 
 });
 
@@ -53,7 +80,7 @@ formsection.addEventListener('click', function (e) {
 
 function add(whichday, getform) {
     const reservationDiv = document.createElement('div');
-    reservationDiv.className = 'reservation fs-6 rounded-1 d-flex align-items-center justify-content-between ps-1 pe-1 '
+    reservationDiv.className = 'scaleR reservation fs-lg-6 rounded-1 d-flex align-items-center justify-content-between ps-1 pe-1 '
 
 
 
@@ -72,8 +99,8 @@ function add(whichday, getform) {
     }
 
 
-    reservationDiv.innerHTML = `<span>${getform.client}</span>
-        <span>${getform.start} - ${getform.end}</span>
+    reservationDiv.innerHTML = `<span>${getform.start.slice(0,2)}-${getform.end.slice(0,2)}</span>
+<span>${getform.client.slice(0,8)}</span>
         <div class="d-flex justify-content-between align-items-center gap-1  ">
             <button class="btn-edit"><i class="fa-solid fa-pen-to-square"></i></button>
             <button class="btn-remove"><i class="fa-solid fa-trash"></i></button>
@@ -93,7 +120,6 @@ function add(whichday, getform) {
         e.stopPropagation()
         // Show form with existing data
          console.log("u clicked modify")
-        reservationDiv.remove();
         day = whichday;
        document.getElementById('clientName').value = getform.client
      document.getElementById('startTime').value= getform.start
@@ -101,6 +127,7 @@ function add(whichday, getform) {
         document.getElementById('reservationType').value = getform.type
         formOnOff()
         console.log("skipped toggle")
+        reservationDiv.remove();
 
         // document.getElementById('clientName').value = getform.client
         // document.getElementById('startTime').value = getform.start
