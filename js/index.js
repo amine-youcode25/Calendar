@@ -34,7 +34,6 @@ gdSection.addEventListener('click', function (detector) {
 
 formcont.addEventListener('submit', function (e) {
     e.preventDefault();
-    getForm();
     add(day, getForm());
     formcont.reset();
     formOnOff()
@@ -54,7 +53,7 @@ formsection.addEventListener('click', function (e) {
 
 function add(whichday, getform) {
     const reservationDiv = document.createElement('div');
-    reservationDiv.className = 'reservation fs-6 rounded-1 d-flex align-items-center justify-content-around p-0'
+    reservationDiv.className = 'reservation fs-6 rounded-1 d-flex align-items-center justify-content-between ps-1 pe-1 '
 
 
 
@@ -75,7 +74,7 @@ function add(whichday, getform) {
 
     reservationDiv.innerHTML = `<span>${getform.client}</span>
         <span>${getform.start} - ${getform.end}</span>
-        <div>
+        <div class="d-flex justify-content-between align-items-center gap-1  ">
             <button class="btn-edit"><i class="fa-solid fa-pen-to-square"></i></button>
             <button class="btn-remove"><i class="fa-solid fa-trash"></i></button>
         </div>`;
@@ -93,7 +92,7 @@ function add(whichday, getform) {
     reservationDiv.querySelector('.btn-edit').addEventListener('click', function (e) {
         e.stopPropagation()
         // Show form with existing data
-        console.log("u clicked modify")
+         console.log("u clicked modify")
         reservationDiv.remove();
         day = whichday;
        document.getElementById('clientName').value = getform.client
@@ -114,9 +113,6 @@ function add(whichday, getform) {
 
 
 //if user press anywhere than grid section
-
-
-
 
 
 

@@ -137,27 +137,32 @@ label {
 }
 
 
-.btn-remove{
+.btn-remove,
+.btn-edit{
     height: 20px;
     width: 20px;
-
-    display: inline;
+    border-radius: 5px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: 1px solid white;
 }
 
 
 
-.btn-remove i{
-    height: 100%;
-    width: 100%;
+.btn-remove i,
+.btn-edit i{
+    font-size: 10px;
+    color: white;
+
 }
 
-.btn-edit{
-    display: inline;
-}
+
 
 .reservation:hover .btn-remove{
-    display: inline-block;
+    display: flex;
 }
 .reservation:hover .btn-edit{
-    display: inline-block;
+    display: flex;
 }
