@@ -89,16 +89,16 @@ function add(whichday, getform) {
     reservationDiv.style.color = 'white';
     //styling colors need to add text color too , je peux ajouter une animation sur vip
     if (getform.type === "standard"){
-        reservationDiv.style.backgroundColor = 'green';
+        reservationDiv.style.backgroundColor = 'rgb(61, 219, 219)';
     }
     else if (getform.type === "birthday"){
-        reservationDiv.style.backgroundColor = 'blue';
+        reservationDiv.style.backgroundColor = 'rgb(255, 9, 147)';
     }
     else if (getform.type === "group"){
-        reservationDiv.style.backgroundColor = 'white';
+        reservationDiv.style.backgroundColor = 'rgb(132, 211, 67)';
     }
     else if (getform.type === "vip"){
-        reservationDiv.style.backgroundColor = 'yellow';
+        reservationDiv.style.backgroundColor = 'rgb(255, 206, 12)';
     }
 
 
