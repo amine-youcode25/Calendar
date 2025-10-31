@@ -3,8 +3,8 @@ const formcont = document.querySelector('.form-container');
 const formsection = document.getElementById('form_user');
 
 let day = 0; //div selected to store it
-let amine = 0;
-
+let  cancelDelete = 0; //if user click outside of form while modifying
+let holdFormForModify = 0; //for user if he click outside of form while modifying so the old data back
 function formOnOff() {
     formsection.classList.toggle('tgFunction');
 }
@@ -71,6 +71,7 @@ formcont.addEventListener('submit', function (e) {
         add(day, data);
         formcont.reset();
         formOnOff()
+        cancelDelete = 0;
 
 });
 
@@ -78,9 +79,9 @@ formcont.addEventListener('submit', function (e) {
 //c oblige poiur que l'utilisateur click outside de la form pour la ferme
 formsection.addEventListener('click', function (e) {
     if (e.target === formsection) {
-        if (amine === 1) {
-            add(day, getForm())
-            amine = 0;
+        if ( cancelDelete === 1) {
+            add(day, holdFormForModify);
+             cancelDelete = 0;
         }
         formOnOff();
         formcont.reset();
@@ -140,7 +141,8 @@ function add(whichday, getform) {
         formOnOff()
         console.log("skipped toggle")
         reservationDiv.remove();
-        amine = 1;
+         cancelDelete = 1;
+         holdFormForModify = getform;
         // document.getElementById('clientName').value = getform.client
         // document.getElementById('startTime').value = getform.start
         // document.getElementById('endTime').value = getform.end
