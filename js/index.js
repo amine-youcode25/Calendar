@@ -3,13 +3,14 @@ const formcont = document.querySelector('.form-container');
 const formsection = document.getElementById('form_user');
 
 let day = 0; //div selected to store it
-
+let amine = 0;
 
 function formOnOff() {
     formsection.classList.toggle('tgFunction');
 }
 
-
+//create array for storage
+let localStorageDate = [];
 function getForm() {
     const data = {
         client: document.getElementById('clientName').value,
@@ -18,8 +19,10 @@ function getForm() {
         nPerson: document.getElementById('numberOfPeople').value,
         type: document.getElementById('reservationType').value
     }
+    localStorageDate.push(data);
     return data;
 }
+
 
 
 gdSection.addEventListener('click', function (detector) {
@@ -27,6 +30,7 @@ gdSection.addEventListener('click', function (detector) {
     if(!day) {
         return;
     }
+
     // day.style.backgroundColor = 'red'; for debug
     formOnOff();
 
@@ -74,6 +78,10 @@ formcont.addEventListener('submit', function (e) {
 //c oblige poiur que l'utilisateur click outside de la form pour la ferme
 formsection.addEventListener('click', function (e) {
     if (e.target === formsection) {
+        if (amine === 1) {
+            add(day, getForm())
+            amine = 0;
+        }
         formOnOff();
         formcont.reset();
     }
@@ -102,9 +110,9 @@ function add(whichday, getform) {
     }
 
 
-    reservationDiv.innerHTML = `<div class="fs-small-1 fs-small-2"><span>${getform.start.slice(0,2)}h-${getform.end.slice(0,2)}h</span>
-<span>${getform.client.slice(0,8)}</span></div>
-        <div class="d-flex d-sm-flex justify-content-between align-items-center gap-1 fs-7 fs-9 ">
+    reservationDiv.innerHTML = `<div class="fs-small-1 fs-small-2"><span class="fs-numbers-md fs-numbers-sm">${getform.start.slice(0,2)}h-${getform.end.slice(0,2)}h</span>
+<span>${getform.client.slice(0,12)}</span></div>
+        <div class="d-flex d-sm-flex justify-content-evenly align-items-center gap-1 fs-7 fs-9 ">
             <button class="btn-edit"><i class="fa-solid fa-pen-to-square"></i></button>
             <button class="btn-remove"><i class="fa-solid fa-trash"></i></button>
         </div>`;
@@ -132,7 +140,7 @@ function add(whichday, getform) {
         formOnOff()
         console.log("skipped toggle")
         reservationDiv.remove();
-
+        amine = 1;
         // document.getElementById('clientName').value = getform.client
         // document.getElementById('startTime').value = getform.start
         // document.getElementById('endTime').value = getform.end
