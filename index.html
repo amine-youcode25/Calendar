@@ -1,17 +1,23 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>cal</title>
+    <title>Gourmet</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/cd8a625ac5.js" crossorigin="anonymous"></script>
-
+    <meta name="description" content="calendar for reservation">
+    <meta name="keywords" content="calendar, reservation, vip, birthday, group">
+    <meta
 </head>
+
+
+
+
 <body>
 
-
+<!--la jai cree une navbar d'apres bootstrap navs-->
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Calendar</a>
@@ -54,7 +60,7 @@
 
 
 
-<!--         head-title row -->
+<!--         days row -->
         <div class="row text-center text-white g-0 mb-1">
             <div class="col fs-7 fs-9  fw-bolder  bg-danger bg-redox">LUN</div>
             <div class="col  fs-7 fs-9 fw-bolder bg-danger bg-redox">MAR</div>
@@ -67,7 +73,7 @@
 
 
 
-<!--        layout days -->
+<!--       days from 1 to 31 , 7 each row -->
         <div class="row text-center g-1 mb-1 ">
             <div class="col day-name bg-light min-h-100    "  data-date="2025-12-01">
                 <h6 class="  text-end pe-2 bg-danger-subtle ">1</h6>
@@ -247,7 +253,7 @@
 
 </section>
 
-
+<!--form section and form container -->
 <section id="form_user">
     <form class="form-container">
         <label for="clientName">Client name</label>

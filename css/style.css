@@ -1,23 +1,25 @@
 
 
-.min-h-100 {
-    min-height: 105px !important;
-}
-
-.small_container{
-    min-height: 85px;
-}
+/*.min-h-100 {*/
+/*    min-height: 105px !important;*/
+/*}*/
 
 .col{
     background-color: #ffffff;
 }
 
+
+
+
+/*hover to know which day u want to create a reservation on */
 .col:hover h6{
     background-color: darkred !important;
     color: white!important;
 }
 
 
+
+/*bg color like bootstrap ones*/
 .bg-redox{
     background-color: rgb(255, 0, 24) !important;
 }
@@ -107,21 +109,21 @@ label {
     display: block !important;
 }
 
-.birthday {
-    background-color: cadetblue;
-}
+/*.birthday {*/
+/*    background-color: cadetblue;*/
+/*}*/
 
-.VIP{
-    background-color: greenyellow;
-}
+/*.VIP{*/
+/*    background-color: greenyellow;*/
+/*}*/
 
-.Standard{
-    background-color: darkred;
-}
+/*.Standard{*/
+/*    background-color: darkred;*/
+/*}*/
 
-.Group{
-    background-color: yellow;
-}
+/*.Group{*/
+/*    background-color: yellow;*/
+/*}*/
 
 
 .btn-remove,
