@@ -83,7 +83,7 @@ formsection.addEventListener('click', function (e) {
 
 function add(whichday, getform) {
     const reservationDiv = document.createElement('div');
-    reservationDiv.className = 'scaleR reservation fs-lg-6 rounded-1 d-flex align-items-center justify-content-between ps-1 pe-1 '
+    reservationDiv.className = 'scaleR reservation  fs-lg-6 rounded-1  d-sm-block d-lg-flex d-md-flex align-items-center justify-content-between ps-1 pe-1 '
 
 
     reservationDiv.style.color = 'white';
@@ -102,9 +102,9 @@ function add(whichday, getform) {
     }
 
 
-    reservationDiv.innerHTML = `<span>${getform.start.slice(0,2)}-${getform.end.slice(0,2)}</span>
-<span>${getform.client.slice(0,8)}</span>
-        <div class="d-flex justify-content-between align-items-center gap-1  ">
+    reservationDiv.innerHTML = `<div class="fs-small-1 fs-small-2"><span>${getform.start.slice(0,2)}h-${getform.end.slice(0,2)}h</span>
+<span>${getform.client.slice(0,8)}</span></div>
+        <div class="d-flex d-sm-flex justify-content-between align-items-center gap-1 fs-7 fs-9 ">
             <button class="btn-edit"><i class="fa-solid fa-pen-to-square"></i></button>
             <button class="btn-remove"><i class="fa-solid fa-trash"></i></button>
         </div>`;
@@ -124,9 +124,9 @@ function add(whichday, getform) {
         // Show form with existing data
          console.log("u clicked modify")
         day = whichday;
-       document.getElementById('clientName').value = getform.client
-     document.getElementById('startTime').value= getform.start
-    document.getElementById('endTime').value=getform.end
+        document.getElementById('clientName').value = getform.client
+        document.getElementById('startTime').value= getform.start
+        document.getElementById('endTime').value=getform.end
         document.getElementById('numberOfPeople').value = getform.nPerson
         document.getElementById('reservationType').value = getform.type
         formOnOff()

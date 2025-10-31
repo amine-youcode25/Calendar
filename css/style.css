@@ -187,3 +187,41 @@ h6 {
     min-height: 85px;
 
 }
+
+.day-name{
+    overflow-x: hidden;
+}
+
+
+@media (max-width: 400px) {
+
+ .fs-9{
+     font-size: 0.5rem;
+ }
+.fs-small-1 {
+    font-size: 0.5rem;
+}
+
+    .btn-remove,
+    .btn-edit{
+        height: 15px;
+        width: 15px;
+    }
+
+
+}
+
+@media (max-width: 624px) {
+    .fs-small-2 {
+        font-size: 0.7rem;
+    }
+    .fs-7{
+        font-size: 0.7rem;
+    }
+
+    .btn-remove,
+    .btn-edit{
+        height: 17px;
+        width: 17px;
+    }
+}
