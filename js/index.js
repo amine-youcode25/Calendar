@@ -24,6 +24,9 @@ function getForm() {
 
 gdSection.addEventListener('click', function (detector) {
     day = detector.target.closest('.small_container');
+    if(!day) {
+        return;
+    }
     // day.style.backgroundColor = 'red'; for debug
     formOnOff();
 
@@ -124,6 +127,7 @@ function add(whichday, getform) {
        document.getElementById('clientName').value = getform.client
      document.getElementById('startTime').value= getform.start
     document.getElementById('endTime').value=getform.end
+        document.getElementById('numberOfPeople').value = getform.nPerson
         document.getElementById('reservationType').value = getform.type
         formOnOff()
         console.log("skipped toggle")
