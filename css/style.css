@@ -177,4 +177,13 @@ h6 {
 
 /*solve 6 and 7 days event*/
 
+.weekdays{
+    background-color: #6a3232;
+    min-height: 85px;
+}
 
+.notInMonth{
+    background-color: #6a3232;
+    min-height: 85px;
+
+}

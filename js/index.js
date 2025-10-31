@@ -86,7 +86,7 @@ function add(whichday, getform) {
     reservationDiv.className = 'scaleR reservation fs-lg-6 rounded-1 d-flex align-items-center justify-content-between ps-1 pe-1 '
 
 
-
+    reservationDiv.style.color = 'white';
     //styling colors need to add text color too , je peux ajouter une animation sur vip
     if (getform.type === "standard"){
         reservationDiv.style.backgroundColor = 'green';
